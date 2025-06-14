@@ -1,0 +1,41 @@
+# -----------------------------------------------------------------------------
+# Configuration for the Obsidian Gemini Tagging & Linking Agent
+# -----------------------------------------------------------------------------
+
+# Path to your Obsidian vault.
+# On Windows: 'C:/Users/YourUser/Documents/ObsidianVault'
+# On macOS/Linux: '/Users/YourUser/Documents/ObsidianVault'
+obsidian_vault_path: 'PATH'
+
+# If 'true', the script will only print the changes it would make without
+# actually modifying any files. Highly recommended for the first run.
+dry_run: false
+
+# --- Gemini API Settings ---
+gemini:
+  # Your Google AI API Key.
+  # For better security, you can store this as an environment variable
+  # and reference it here like this: api_key: !env GOOGLE_API_KEY
+  api_key: 'KEY'
+  
+  # The model to use for generating tags. 
+  # 'gemini-2.5-flash-preview-05-20' is the latest model with improved reasoning capabilities.
+  # 'gemini-1.5-flash-latest' is also available as a fallback option.
+  model: 'gemini-2.5-flash-preview-05-20'
+  
+  # Thinking budget for the model (0-24576 tokens)
+  # Higher values improve reasoning quality but increase cost and latency
+  # Set to 0 to disable thinking (lowest cost, fastest speed)
+  # Set to 1024 for a balanced approach
+  # Set to 4096 or higher for complex tag generation
+  thinking_budget: 2048
+
+# --- Note Linking Settings ---
+linking:
+  # The minimum number of shared tags required for two notes to be
+  # considered "related".
+  shared_tags_threshold: 2
+
+  # The maximum number of related notes to list in the '## Related Notes'
+  # section of a note.
+  related_notes_limit: 5
